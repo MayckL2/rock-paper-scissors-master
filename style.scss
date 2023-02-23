@@ -1,0 +1,39 @@
+*{
+    margin: 0px;
+}
+body{
+    // background-color: rgb(1, 1, 146);
+    background-image: radial-gradient(rgb(0, 0, 92), rgb(4, 0, 45));
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+header{
+    border: solid rgba(255, 255, 255, 0.497);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 500px !important;
+
+    img{
+        width: 150px;
+    }
+
+    .score{
+        background-color: white;
+        border-radius: 10px;
+        padding: 0px 5px;
+
+        p:nth-of-type(1){
+            color: blue;
+            font-size: 20px;
+        }
+        p:nth-of-type(2){
+            color: gray;
+            font-weight: bold;
+            font-size: 50px;
+        }
+    }
+}
