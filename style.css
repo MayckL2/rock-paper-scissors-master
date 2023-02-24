@@ -16,21 +16,125 @@ header {
   display: flex;
   justify-content: space-between;
   width: 500px !important;
+  margin: 0 auto;
 }
 header img {
   width: 150px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 header .score {
   background-color: white;
   border-radius: 10px;
-  padding: 0px 5px;
+  padding: 5px 20px;
 }
 header .score p:nth-of-type(1) {
   color: blue;
   font-size: 20px;
+  margin: 0px;
 }
 header .score p:nth-of-type(2) {
   color: gray;
   font-weight: bold;
   font-size: 50px;
+  margin: 0px;
+}
+
+.modal {
+  background-color: white;
+  padding: 20px;
+  display: none;
+  flex-direction: column;
+  align-items: left;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  top: 100px;
+  left: 40%;
+  border-radius: 20px;
+}
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.modal .close:hover {
+  scale: 1.2;
+}
+.modal img {
+  margin-top: 20px;
+}
+
+main {
+  background-image: url(images/bg-triangle.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px;
+  width: 500px;
+  height: 500px;
+  position: relative;
+  margin: 50px auto;
+}
+main div {
+  background-color: white;
+  padding: 20px;
+  border-radius: 50%;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+main div img {
+  width: 50px;
+  height: 50px;
+  transition: all 0.5s;
+}
+main div:hover img {
+  scale: 1.2;
+}
+main div:active {
+  scale: 1.1;
+  box-shadow: 0px 1px 1px gray !important;
+}
+main div:nth-of-type(1) {
+  border: 15px solid orange;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  box-shadow: 1px 10px 1px rgba(255, 166, 0, 0.637);
+}
+main div:nth-of-type(2) {
+  border: 15px solid blue;
+  position: absolute;
+  top: 100px;
+  left: 320px;
+  box-shadow: 1px 10px 1px rgba(0, 0, 255, 0.637);
+}
+main div:nth-of-type(3) {
+  border: 15px solid red;
+  position: absolute;
+  top: 300px;
+  left: 210px;
+  box-shadow: 1px 10px 1px rgba(255, 0, 0, 0.616);
+}
+
+button {
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 10px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: transparent;
+  transition: all 0.5s;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+}
+
+button:hover {
+  background-color: aqua;
+  color: black;
 }/*# sourceMappingURL=style.css.map */
