@@ -1,48 +1,51 @@
-*{
-    margin: 0px;
-}
-body{
-    // background-color: rgb(1, 1, 146);
-    background-image: radial-gradient(rgb(0, 0, 92), rgb(4, 0, 45));
-    background-repeat: no-repeat;
-    height: 100vh;
-    font-family: sans-serif;
+* {
+  margin: 0px;
 }
 
-header{
-    border: solid rgba(255, 255, 255, 0.497);
+body {
+  // background-color: rgb(1, 1, 146);
+  background-image: radial-gradient(rgb(0, 0, 92), rgb(4, 0, 45));
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+header {
+  border: solid rgba(255, 255, 255, 0.497);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 500px !important;
+  margin: 0 auto;
+
+  img {
+    width: 150px;
+    object-fit: contain;
+  }
+
+  .score {
+    background-color: white;
     border-radius: 10px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    width: 500px !important;
-    margin: 0 auto;
+    padding: 5px 20px;
 
-    img{
-        width: 150px;
-        object-fit: contain;
+    p:nth-of-type(1) {
+      color: blue;
+      font-size: 20px;
+      margin: 0px;
     }
 
-    .score{
-        background-color: white;
-        border-radius: 10px;
-        padding: 5px 20px;
-
-        p:nth-of-type(1){
-            color: blue;
-            font-size: 20px;
-            margin: 0px;
-        }
-        p:nth-of-type(2){
-            color: gray;
-            font-weight: bold;
-            font-size: 50px;
-            margin: 0px;
-        }
+    p:nth-of-type(2) {
+      color: gray;
+      font-weight: bold;
+      font-size: 50px;
+      margin: 0px;
     }
+  }
 }
 
-.modal{
+.modal {
   background-color: white;
   padding: 20px;
   display: none;
@@ -51,26 +54,91 @@ header{
   width: fit-content;
   position: absolute;
   top: 100px;
-  left: 40%;
+  left: 37%;
   border-radius: 20px;
+  z-index: 1;
 
-  .close{
+  .close {
     position: absolute;
     top: 10px;
     right: 20px;
     transition: all 0.5s;
     cursor: pointer;
   }
-  .close:hover{
+
+  .close:hover {
     scale: 1.2;
   }
 
-  img{
+  img {
     margin-top: 20px;
   }
 }
 
-main{
+.win {
+  box-shadow: 0 0 0 20px rgba(128, 128, 128, 0.315),
+    0 0 0 40px rgba(128, 128, 128, 0.199),
+    0 0 0 80px rgba(128, 128, 128, 0.068) !important;
+}
+
+.playing {
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  width: 80vw;
+  color: white;
+  margin: 50px 0 0 10vw;
+
+  h1 {
+    text-align: center;
+  }
+
+  button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: red;
+    font-weight: bold;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: aqua;
+    color: black;
+    border-radius: 0px;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin: 10px;
+
+    div {
+      padding: 20px;
+      border-radius: 50%;
+      width: fit-content;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      img {
+        width: 50px;
+        height: 50px;
+        transition: all 0.5s;
+      }
+    }
+  }
+
+  div:hover {
+    img {
+      scale: 1.2;
+    }
+  }
+}
+
+.chosen {
   background-image: url(images/bg-triangle.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -78,57 +146,82 @@ main{
   width: 500px;
   height: 500px;
   position: relative;
-  margin: 50px auto;
+  margin: 0px auto;
 
-  div{
-    background-color: white;
-    padding: 20px;
-    border-radius: 50%;
-    width: fit-content;
-    cursor: pointer;
-    transition: all 0.2s;
-    
-    img{
-      width: 50px;
-      height: 50px;
-      transition: all 0.5s;
-    }
-  }
-
-  div:hover{
-    img{
-      scale: 1.2;
-    }
-  }
-  div:active{
-    scale: 1.1;
-    box-shadow: 0px 1px 1px gray !important;
-  }
-  
-  div:nth-of-type(1){
-    border: 15px solid orange;
+  .scissor {
     position: absolute;
     top: 100px;
     left: 100px;
-    box-shadow: 1px 10px 1px rgba(255, 166, 0, 0.637);
   }
-  div:nth-of-type(2){
-    border: 15px solid blue;
+
+  .paper {
     position: absolute;
     top: 100px;
     left: 320px;
-    box-shadow: 1px 10px 1px rgba(0, 0, 255, 0.637);
   }
-  div:nth-of-type(3){
-    border: 15px solid red;
+
+  .rock {
     position: absolute;
     top: 300px;
     left: 210px;
-    box-shadow: 1px 10px 1px rgba(255, 0, 0, 0.616);
+  }
+
+  .scissor:active {
+    scale: 1.1;
+  }
+
+  .paper:active {
+    scale: 1.1;
+  }
+
+  .rock:active {
+    scale: 1.1;
   }
 }
 
-button{
+.scissor,
+.paper,
+.rock {
+  background-color: white;
+  padding: 20px;
+  border-radius: 50%;
+  width: fit-content;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  img {
+    width: 50px;
+    height: 50px;
+    transition: all 0.5s;
+  }
+}
+
+.scissor,
+.paper,
+.rock:hover {
+  img {
+    scale: 1.2;
+  }
+}
+
+
+
+.scissor {
+  border: 15px solid orange;
+  box-shadow: 1px 10px 1px rgba(255, 166, 0, 0.637);
+}
+
+.paper {
+  border: 15px solid blue;
+  box-shadow: 1px 10px 1px rgba(0, 0, 255, 0.637);
+}
+
+.rock {
+  border: 15px solid red;
+  box-shadow: 1px 10px 1px rgba(255, 0, 0, 0.616);
+}
+
+.rules {
   border: solid 1px;
   border-radius: 5px;
   padding: 10px 30px;
@@ -139,9 +232,15 @@ button{
   transition: all 0.5s;
   cursor: pointer;
   position: absolute;
+  top: 90vh;
   right: 20px;
 }
-button:hover{
+
+.rules:hover {
   background-color: aqua;
   color: black;
+}
+
+.pt{
+  text-align: center;
 }

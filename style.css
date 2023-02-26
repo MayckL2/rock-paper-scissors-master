@@ -7,6 +7,7 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
   font-family: sans-serif;
+  overflow: hidden;
 }
 
 header {
@@ -50,8 +51,9 @@ header .score p:nth-of-type(2) {
   width: fit-content;
   position: absolute;
   top: 100px;
-  left: 40%;
+  left: 37%;
   border-radius: 20px;
+  z-index: 1;
 }
 .modal .close {
   position: absolute;
@@ -67,7 +69,60 @@ header .score p:nth-of-type(2) {
   margin-top: 20px;
 }
 
-main {
+.win {
+  box-shadow: 0 0 0 20px rgba(128, 128, 128, 0.315), 0 0 0 40px rgba(128, 128, 128, 0.199), 0 0 0 80px rgba(128, 128, 128, 0.068) !important;
+}
+
+.playing {
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  width: 80vw;
+  color: white;
+  margin: 50px 0 0 10vw;
+}
+.playing h1 {
+  text-align: center;
+}
+.playing button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: red;
+  font-weight: bold;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.playing button:hover {
+  background-color: aqua;
+  color: black;
+  border-radius: 0px;
+}
+.playing div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin: 10px;
+}
+.playing div div {
+  padding: 20px;
+  border-radius: 50%;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.playing div div img {
+  width: 50px;
+  height: 50px;
+  transition: all 0.5s;
+}
+.playing div:hover img {
+  scale: 1.2;
+}
+
+.chosen {
   background-image: url(images/bg-triangle.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -75,9 +130,36 @@ main {
   width: 500px;
   height: 500px;
   position: relative;
-  margin: 50px auto;
+  margin: 0px auto;
 }
-main div {
+.chosen .scissor {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+.chosen .paper {
+  position: absolute;
+  top: 100px;
+  left: 320px;
+}
+.chosen .rock {
+  position: absolute;
+  top: 300px;
+  left: 210px;
+}
+.chosen .scissor:active {
+  scale: 1.1;
+}
+.chosen .paper:active {
+  scale: 1.1;
+}
+.chosen .rock:active {
+  scale: 1.1;
+}
+
+.scissor,
+.paper,
+.rock {
   background-color: white;
   padding: 20px;
   border-radius: 50%;
@@ -86,41 +168,36 @@ main div {
   cursor: pointer;
   transition: all 0.2s;
 }
-main div img {
+.scissor img,
+.paper img,
+.rock img {
   width: 50px;
   height: 50px;
   transition: all 0.5s;
 }
-main div:hover img {
+
+.scissor img,
+.paper img,
+.rock:hover img {
   scale: 1.2;
 }
-main div:active {
-  scale: 1.1;
-  box-shadow: 0px 1px 1px gray !important;
-}
-main div:nth-of-type(1) {
+
+.scissor {
   border: 15px solid orange;
-  position: absolute;
-  top: 100px;
-  left: 100px;
   box-shadow: 1px 10px 1px rgba(255, 166, 0, 0.637);
 }
-main div:nth-of-type(2) {
+
+.paper {
   border: 15px solid blue;
-  position: absolute;
-  top: 100px;
-  left: 320px;
   box-shadow: 1px 10px 1px rgba(0, 0, 255, 0.637);
 }
-main div:nth-of-type(3) {
+
+.rock {
   border: 15px solid red;
-  position: absolute;
-  top: 300px;
-  left: 210px;
   box-shadow: 1px 10px 1px rgba(255, 0, 0, 0.616);
 }
 
-button {
+.rules {
   border: solid 1px;
   border-radius: 5px;
   padding: 10px 30px;
@@ -131,10 +208,15 @@ button {
   transition: all 0.5s;
   cursor: pointer;
   position: absolute;
+  top: 90vh;
   right: 20px;
 }
 
-button:hover {
+.rules:hover {
   background-color: aqua;
   color: black;
+}
+
+.pt {
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */

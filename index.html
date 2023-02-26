@@ -22,32 +22,54 @@
  
     <div class="score">
       <p>score</p>
-      <p class="pt">00</p>
+      <p class="pt">0</p>
     </div>
   </header>
 
   <div class="modal">
     <h1>Rules</h1>
 
-    <img class="close" src="images/icon-close.svg" alt="">
+    <img onclick="closeRules()" class="close" src="images/icon-close.svg" alt="">
   
     <img src="images/image-rules.svg" alt="">
   </div>
 
-  <main>
+  <main class="playing">
     <div>
-      <img src="images/icon-scissors.svg" alt="">
+      <h3>YOU PICKED</h3>
+      <div>
+        <img id="you" src="images/icon-lizard.svg" alt="">
+      </div>
     </div>
-    <div>
-      <img src="images/icon-paper.svg" alt="">
+
+    <div id="result">
+      <!-- <h1>YOU LOSE</h1>
+      <button>PLAY AGAIN</button> -->
     </div>
+
     <div>
-      <img src="images/icon-rock.svg" alt="">
+      <h3>THE HOUSE PICKED</h3>
+      <div>
+        <img id="house" src="images/icon-spock.svg" alt="">
+      </div>
     </div>
   </main>
 
-  <button>RULES</button>
+  <main class="chosen">
+    <div>
+      <img onclick="play('scissor')" class="scissor" src="images/icon-scissors.svg" alt="">
+    </div>
+    <div>
+      <img onclick="play('paper')" class="paper" src="images/icon-paper.svg" alt="">
+    </div>
+    <div>
+      <img onclick="play('rock')" class="rock" src="images/icon-rock.svg" alt="">
+    </div>
+  </main>
 
+  <button onclick="rules()" class="rules">RULES</button>
+
+  <script src="script.js"></script>
   <div class="attribution" style="position: absolute; bottom: 5px; left: 40%;">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
