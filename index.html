@@ -15,7 +15,7 @@
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
-<body>
+<body onresize="document.title= window.innerWidth">
 
   <header>
     <img src="images/logo.svg" alt="">
@@ -70,9 +70,9 @@
   <button onclick="rules()" class="rules">RULES</button>
 
   <script src="script.js"></script>
-  <div class="attribution" style="position: absolute; bottom: 5px; left: 40%;">
+  <div class="attribution" style="position: relative; bottom: -40px; ">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="https://github.com/MayckL2/rock-paper-scissors-master">Mayck Luciano</a>.
   </div>
 </body>
 </html>

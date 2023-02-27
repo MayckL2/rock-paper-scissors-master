@@ -7,7 +7,7 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
   font-family: sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 header {
@@ -16,8 +16,14 @@ header {
   padding: 20px;
   display: flex;
   justify-content: space-between;
-  width: 500px !important;
+  width: 500px;
   margin: 0 auto;
+}
+@media (max-width: 600px) {
+  header {
+    margin: 10px auto;
+    width: 80vw;
+  }
 }
 header img {
   width: 150px;
@@ -55,6 +61,22 @@ header .score p:nth-of-type(2) {
   border-radius: 20px;
   z-index: 1;
 }
+@media (max-width: 700px) {
+  .modal {
+    width: 95vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    border-radius: 0px;
+  }
+  .modal .close {
+    scale: 2;
+    right: 50px !important;
+  }
+  .modal img {
+    scale: 0.8;
+  }
+}
 .modal .close {
   position: absolute;
   top: 10px;
@@ -80,6 +102,25 @@ header .score p:nth-of-type(2) {
   width: 80vw;
   color: white;
   margin: 50px 0 0 10vw;
+}
+.playing * {
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .playing {
+    grid-template-columns: auto auto;
+    grid-template-areas: "you house" "result result";
+    margin: 50px 0 0 20px;
+  }
+  .playing #you {
+    grid-area: you;
+  }
+  .playing #house {
+    grid-area: house;
+  }
+  .playing #result {
+    grid-area: result;
+  }
 }
 .playing h1 {
   text-align: center;
@@ -131,6 +172,28 @@ header .score p:nth-of-type(2) {
   height: 500px;
   position: relative;
   margin: 0px auto;
+}
+@media (max-width: 700px) {
+  .chosen {
+    height: 350px;
+    top: -50px;
+    left: -80px;
+    scale: 0.8;
+  }
+  .chosen .scissor {
+    top: 20px !important;
+  }
+  .chosen .paper {
+    top: 20px !important;
+  }
+  .chosen .rock {
+    top: 230px !important;
+  }
+}
+@media (max-width: 400px) {
+  .chosen {
+    left: -110px;
+  }
 }
 .chosen .scissor {
   position: absolute;
@@ -210,6 +273,11 @@ header .score p:nth-of-type(2) {
   position: absolute;
   top: 90vh;
   right: 20px;
+}
+@media (max-width: 700px) {
+  .rules {
+    right: 35%;
+  }
 }
 
 .rules:hover {

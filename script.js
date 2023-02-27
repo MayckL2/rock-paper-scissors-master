@@ -6,6 +6,7 @@ let chosen = document.querySelector(".chosen")
 let ponts = document.querySelector(".pt")
 let options= ['scissor', 'rock', 'paper']
 let score = 0
+let ButtonRules = document.querySelector(".rules")
 
 // abre modal de regras
 function rules() {
@@ -19,7 +20,12 @@ function closeRules() {
 
 // executa a logica do joquenpo
 function play(esc) {
-    playing.style.display = "flex"
+    ButtonRules.style.display= "none"
+    if(window.innerWidth > 700){
+        playing.style.display = "flex"
+    }else{
+        playing.style.display = "grid"
+    }
     let you = document.querySelector("#you")
     let escolha = options[Math.floor(Math.random() * options.length)]
  
@@ -93,4 +99,5 @@ function play(esc) {
 function playAgain() {
     chosen.style.display = "flex"
     playing.style.display = "none"
+    ButtonRules.style.display= "block"
 }
