@@ -7,7 +7,13 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
   font-family: sans-serif;
-  overflow-x: hidden;
+  overflow: hidden;
+}
+@media (max-width: 700px) {
+  body {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 }
 
 header {
@@ -91,7 +97,19 @@ header .score p:nth-of-type(2) {
   margin-top: 20px;
 }
 
+@keyframes pop {
+  0% {
+    scale: 0.5;
+  }
+  50% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+  }
+}
 .win {
+  animation: pop 0.5s ease-in-out;
   box-shadow: 0 0 0 20px rgba(128, 128, 128, 0.315), 0 0 0 40px rgba(128, 128, 128, 0.199), 0 0 0 80px rgba(128, 128, 128, 0.068) !important;
 }
 
